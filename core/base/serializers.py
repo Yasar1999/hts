@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from datetime import datetime
-from core.users.models import CustomUser
+from users.models import CustomUser
 
 
 class SafeCurrentUserDefault(serializers.CurrentUserDefault):

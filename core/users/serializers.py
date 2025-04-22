@@ -3,7 +3,7 @@ from datetime import datetime
 import django_filters
 from rest_framework import serializers
 from django.contrib.auth.models import Group, Permission
-from core.base.serializers import BaseSerializer
+from base.serializers import BaseSerializer
 from .models import CustomUser
 
 

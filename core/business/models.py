@@ -2,8 +2,8 @@ from django.db import models
 from django.db.models import F
 from django.db.models.signals import post_delete, post_save
 from django.dispatch import receiver
-from core.product.models import ProductSizeChart
-from core.users.models import CustomUser
+from product.models import ProductSizeChart
+from users.models import CustomUser
 
 # Create your models here.
 PAYMENT_MODE_CHOICES = [

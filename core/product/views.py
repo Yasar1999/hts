@@ -7,7 +7,7 @@ from .serializers import ProductSerializer, CategoryCreateUpdateAPISerializer, B
     CategorySerializer, ProductColorSerializer, ProductFilter, BrandSerializer, SizeChartCreateUpdateAPISerializer, \
     SizeChartSerializer, ProductRetrieveSerializer, ProductRatingSerializer, ProductRatingCreateUpdateAPISerializer, \
     ProductSizeChartSerializer
-from core.base.views import CustomPagination, CustomDjangoModelPermission, common_cache_clear
+from base.views import CustomPagination, CustomDjangoModelPermission, common_cache_clear
 from django.db import transaction
 from django.db.models import Q
 from drf_yasg.utils import swagger_auto_schema
@@ -15,9 +15,9 @@ from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Category, ProductColor, Product, SizeChart, Brand, ProductRating, ProductSizeChart
 import json
-from core.base.generic_functions import get_name_slug
+from base.generic_functions import get_name_slug
 from django.shortcuts import get_object_or_404
-from ..core.custom_auth import CustomJWTAuthentication
+from core.custom_auth import CustomJWTAuthentication
 
 # Create your views here.
 
@@ -363,12 +363,12 @@ class BrandViewSet(viewsets.ModelViewSet):
 class ProductViewSet(viewsets.ModelViewSet):
     authentication_classes = [CustomJWTAuthentication]
     serializer_class = ProductSerializer
-    queryset = Product.objects.select_related('brand', 'size').order_by('-last_updated_on')
+    queryset = Product.objects.select_related('brand').order_by('-last_updated_on')
     filter_backends = (DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter)
-    search_fields = ('size__category__display_name', 'size__age', 'brand__display_name')
+    search_fields = ('category__display_name', 'brand__display_name')
     filterset_class = ProductFilter
     pagination_class = CustomPagination
-    ordering_fields = ('size__category__display_name', 'brand__display_name', 'created_on', 'last_updated_on',
+    ordering_fields = ('category__display_name', 'brand__display_name', 'created_on', 'last_updated_on',
                        'is_active',)
     my_tags = ["Product Management - Product"]
 

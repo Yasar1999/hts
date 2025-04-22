@@ -1,4 +1,4 @@
-from core.base.serializers import BaseSerializer
+from base.serializers import BaseSerializer
 from rest_framework import serializers
 from .models import Category, Product, ProductColor, SizeChart, Brand, ProductRating, ProductSizeChart
 import django_filters

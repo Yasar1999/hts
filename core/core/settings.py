@@ -173,31 +173,17 @@ SWAGGER_SETTINGS = {"DEFAULT_AUTO_SCHEMA_CLASS": 'base.models.CustomAutoSchema',
 # cors config
 CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # Add the frontend URL here
-    "http://127.0.0.1:3000",  # If you're running the frontend on 127.0.0.1
-]
+CORS_ALLOWED_ORIGINS = config("CORS_ALLOWED_ORIGINS").split(',')
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        # 'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-        # 'rest_framework_jwt.authentication.JSONWebTokenAuthentication'
-        # 'rest_framework_simplejwt.authentication.JWTAuthentication'
         'core.custom_auth.CustomJWTAuthentication',
     ),
     'ORDERING_PARAM': 'order_by',
     'SEARCH_PARAM': 'search_text'
 }
-
-# Override JWT settings to enable token refresh
-# JWT_AUTH = {
-#     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
-#     'JWT_ALLOW_REFRESH': True,
-#     'JWT_RESPONSE_PAYLOAD_HANDLER': 'users.views.jwt_response_payload_handler',
-#     'JWT_AUTH_HEADER_PREFIX': 'Bearer', #JWT by default
-# }
 
 
 # Simple JWT
@@ -227,11 +213,6 @@ LOGGING = {
         },
     },
     'handlers': {
-        # 'audit': {
-        #     'class': 'common.log.AuditLogHandler',
-        #     'formatter': 'verbose',
-        #     'model': 'common.log.AuditLog'
-        # },
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
@@ -239,13 +220,6 @@ LOGGING = {
             'formatter': 'standard',
             },
     },
-    # 'loggers': {
-    #     'audit_logger': {
-    #         'handlers': ['audit'],
-    #         'level': 'DEBUG',
-    #         'propagate': True
-    #     }
-    # },
     'django': {
         'handlers': ['file'],
         'level': 'DEBUG',
@@ -294,6 +268,7 @@ GRAPHENE = {
     "SCHEMA": "product.schema.schema"  # Path to your GraphQL schema
 }
 
+# TODO
 # Payment Gateway
-RAZORPAY_KEY_ID = config("RAZORPAY_KEY_ID")
-RAZORPAY_KEY_SECRET = config("RAZORPAY_KEY_SECRET")
+RAZORPAY_KEY_ID = config("RAZORPAY_KEY_ID", None)
+RAZORPAY_KEY_SECRET = config("RAZORPAY_KEY_SECRET", None)

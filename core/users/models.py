@@ -2,7 +2,7 @@ from django.contrib.auth.models import AbstractUser, Group
 from django.db import models
 
 # Create your models here.
-from base.models import BaseModel
+from core.base.models import BaseModel
 
 Group.add_to_class('last_updated_on', models.DateTimeField(auto_now=True, editable=False, blank=True,null=True))
 Group.add_to_class('created_on', models.DateTimeField(auto_now_add=True, editable=False, blank=True,null=True))

@@ -232,7 +232,7 @@ AUTHENTICATION_BACKENDS = (
     'guardian.backends.ObjectPermissionBackend',
 )
 
-AUTH_USER_MODEL = 'users.CustomUser'
+AUTH_USER_MODEL = 'core.users.CustomUser'
 
 AUTH_GROUP_MODEL = 'django.contrib.auth.models.Group'
 
@@ -265,7 +265,7 @@ CACHES = {
 }
 
 GRAPHENE = {
-    "SCHEMA": "product.schema.schema"  # Path to your GraphQL schema
+    "SCHEMA": "core.product.schema.schema"  # Path to your GraphQL schema
 }
 
 # TODO

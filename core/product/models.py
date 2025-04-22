@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models.signals import post_save
 from uuid import uuid4
-from base.models import BaseModel
+from core.base.models import BaseModel
 from colorfield.fields import ColorField
 import string
 from pathlib import Path

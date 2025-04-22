@@ -8,15 +8,15 @@ from django_filters.rest_framework import DjangoFilterBackend
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from base.basemail import send_email_in_thread
-from base.generic_functions import generate_random_string, get_base_url, get_name_slug
+from core.base.basemail import send_email_in_thread
+from core.base.generic_functions import generate_random_string, get_base_url, get_name_slug
 from .models import CustomUser, get_exclude_codes
 from django.db import transaction
 from rest_framework.decorators import APIView
 from rest_framework import viewsets, permissions, filters, status, generics
 from .serializers import CustomUserSerializer, CustomUserListSerializer, CustomUserFilter, GroupSerializer, \
     PermissionsUpdateApiSerializer, PermissionSerializer, GroupListSerializer, CustomUserPasswordRequestSerializer
-from base.views import CustomDjangoModelPermission, CustomPagination
+from core.base.views import CustomDjangoModelPermission, CustomPagination
 
 # Create your views here.
 

@@ -3,13 +3,11 @@ from rest_framework import permissions, viewsets, filters, status, generics
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, ValidationError, ParseError
 from rest_framework.generics import CreateAPIView
-
-from core.custom_auth import CustomJWTAuthentication
 from .serializers import ProductSerializer, CategoryCreateUpdateAPISerializer, BrandCreateUpdateAPISerializer, \
     CategorySerializer, ProductColorSerializer, ProductFilter, BrandSerializer, SizeChartCreateUpdateAPISerializer, \
     SizeChartSerializer, ProductRetrieveSerializer, ProductRatingSerializer, ProductRatingCreateUpdateAPISerializer, \
     ProductSizeChartSerializer
-from base.views import CustomPagination, CustomDjangoModelPermission, common_cache_clear
+from core.base.views import CustomPagination, CustomDjangoModelPermission, common_cache_clear
 from django.db import transaction
 from django.db.models import Q
 from drf_yasg.utils import swagger_auto_schema
@@ -17,8 +15,9 @@ from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Category, ProductColor, Product, SizeChart, Brand, ProductRating, ProductSizeChart
 import json
-from base.generic_functions import get_name_slug
+from core.base.generic_functions import get_name_slug
 from django.shortcuts import get_object_or_404
+from ..core.custom_auth import CustomJWTAuthentication
 
 # Create your views here.
 

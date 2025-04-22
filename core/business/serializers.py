@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Order, OrderItem
-from product.serializers import ProductQuantityDetailSerializer
+from core.product.serializers import ProductQuantityDetailSerializer
 # from product.models import ProductQuantity
 
 

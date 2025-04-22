@@ -1,0 +1,26 @@
+{% extends 'email/base_email.html' %}
+
+{% block title %}
+    Welcome to HTMS - New Registration
+{% endblock %}
+
+{% block content %}
+    <h2>Welcome to HTMS!</h2>
+
+    <p>Dear {{user.username}},</p>
+    <p>Thank you for registering with us! We're excited to have you on board.</p>
+
+    <p>Here are your registration details:</p>
+    <ul>
+        <li><strong>Username:</strong> {{user.username}}</li>
+        <li><strong>Password:</strong> {{password}}</li>
+    </ul>
+
+    <p>You can now access your account and start exploring our features. Click the button below to log in:</p>
+
+    <!-- Button -->
+    <p><a href="{{base_logo_path}}" class="button" style="background-color: #629584; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Log In to Your Account</a></p>
+
+    <p>If you have any questions or need assistance, feel free to contact our support team.</p>
+
+{% endblock %}

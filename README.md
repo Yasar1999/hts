@@ -1,6 +1,6 @@
-# 🛠️ Core Django Project
+# 🧵 Hero Textile Management Project
 
-This is a Django-based web application project configured for REST APIs, JWT authentication, GraphQL support, email services, cloud storage (via MinIO/S3), and a Redis-backed caching system.
+**Hero Textile** is a comprehensive management platform built using Django. It is designed to streamline the operations of a textile business—covering user management, product listings, business logic, storage, and secure authentication. The backend is structured for scalability, REST and GraphQL APIs, and includes integration with modern cloud and caching services.
 
 ---
 

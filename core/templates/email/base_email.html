@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{% block title %}{% endblock %}</title>
+    {% block style %}{% endblock %}
+</head>
+<body>
+<table style="border:0px solid #C9C9C9; width:752px; border-spacing: 0; padding: 0; margin-left: auto; margin-right: auto;">
+    <tr>
+        <td style="text-align: -webkit-left; vertical-align: top;">
+            <table style="border: 0px;border-spacing: 0; padding: 0; width: 100%;">
+                <tr>
+                    <td style="vertical-align: middle; height: 100px; background-color: #ffffff; text-align: center;"><a><img
+                            src="{{base_logo_path}}/static/base/img/logo.png" alt="HTMS" border="0" style="width:250px;"/></a></td>
+                </tr>
+                <table style="border-top:none; border-spacing: 0; padding: 0; border: 0;">
+                    <tr>
+                        <td
+                            style="padding:20px; font:13px Verdana, Arial, Helvetica, sans-serif; color:#333333; vertical-align: top;text-align: left;">
+                            {% block content %}
+                            {% endblock %}
+
+                            <br><br>
+                            <p style="margin:0px 0px 8px 0px; line-height:18px;">Thank you</p>
+                            <p style="margin:0px 0px 15px 0px;">HTMS Team</p>
+                        </td>
+                    </tr>
+                </table>
+                <tr>
+                    <td
+                        style="border-top: 2px solid #387478;color:#ffffff; font:11px Verdana, Arial, Helvetica, sans-serif; text-align:center; vertical-align: center; height: 36px; background-color: #243642;">
+                        {% now "Y" %} © All Rights Reserved. HTMS
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
